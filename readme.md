@@ -62,6 +62,6 @@ expo start
 ```
 or
 
-[![Expo](https://img.shields.io/badge/expo-demo-blue)](https://exp.host/@barba-lee/demo)
+[![Expo](https://img.shields.io/badge/expo-demo-blue)](https://expo.io/@barba-lee/demo)
 
 
