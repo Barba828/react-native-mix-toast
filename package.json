@@ -1,0 +1,34 @@
+{
+  "name": "react-native-mix-toast",
+  "version": "0.0.2",
+  "description": "a react-native toast",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react-native-root-siblings": "^4.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barba828/react-native-mix-toast.git"
+  },
+  "keywords": [
+    "react-native",
+    "toast",
+    "android",
+    "ios"
+  ],
+  "author": "Barba Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Barba828/react-native-mix-toast/issues"
+  },
+  "homepage": "https://github.com/Barba828/react-native-mix-toast#readme",
+  "devDependencies": {
+    "tern": "^0.24.3"
+  }
+}
