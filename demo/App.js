@@ -52,16 +52,18 @@ class MixToastExample extends Component {
   };
   getToast8 = () => {
     Toast.show(
-      <View style={{ width: 100, height: 50, backgroundColor: 'red' }}>
-        <Text>Node Message</Text>
-      </View>
+      <View style={{ width: 200, height: 200, justifyContent: 'space-around', alignItems: 'center' }}>
+        <Text style={{ color: '#fff', backgroundColor: 'yellowgreen', padding: 20 }}> ICON </Text>
+        <Text style={{ color: '#fff', backgroundColor: 'yellowgreen', padding: 20 }}> TEXT </Text>
+      </View >
     );
   };
   getToast9 = () => {
     Toast.show(
-      <View style={{ width: 100, height: 50, backgroundColor: 'red' }}>
-        <Text>Node Message</Text>
-      </View>,
+      <View style={{ justifyContent: 'space-around', alignItems: 'center' }}>
+        <Text style={{ color: '#fff', backgroundColor: 'orange', padding: 20 }}> ICON </Text>
+        <Text style={{ color: '#fff', backgroundColor: 'orange', padding: 20 }}> TEXT </Text>
+      </View >,
       {
         custom: true
       }
