@@ -10,6 +10,7 @@ import {
   TouchableWithoutFeedback,
   Easing,
   Keyboard,
+  Image
 } from 'react-native';
 const window = Dimensions.get('window');
 const positions = {
@@ -53,7 +54,7 @@ class ToastConstructor extends Component {
   }
 
   componentDidMount () {
-    //响应式改变布局
+    // 响应式改变布局
     Dimensions.addEventListener('change', () => {
       this.setState({
         windowWidth: window.width,
@@ -72,9 +73,9 @@ class ToastConstructor extends Component {
   }
 
   componentWillUnmount () {
+    clearTimeout(this.Timeout)
     Dimensions.removeEventListener('change');
     Keyboard.removeListener('keyboardDidChangeFrame');
-    this._hide();
   };
 
   /**
@@ -164,8 +165,8 @@ class ToastConstructor extends Component {
    * @param {object} event 
    */
   _onPress (event) {
-    this.props.hideOnPress && this._hide();
     this.props.onPress && this.props.onPress(event);
+    this.props.hideOnPress && this._hide();
   }
 
   /**
@@ -177,7 +178,7 @@ class ToastConstructor extends Component {
     this.setState({ visible: true }, () => {
       this.animatedValueStart.start(() => {
         this.props.onShown && this.props.onShown();
-        this.showTimeout = setTimeout(() => {
+        this.Timeout = setTimeout(() => {
           this._hide()
         }, this.props.duration);
       })
@@ -191,7 +192,7 @@ class ToastConstructor extends Component {
     clearTimeout(this.Timeout)
     this.props.onHide && this.props.onHide();
     this.animatedValueEnd.start(() => {
-      this.props.onHiden && this.props.onHiden();
+      this.props.onHidden && this.props.onHidden();
       this.setState({ visible: false }, () => {
         //销毁本组件
         this.props.destroyToast()
@@ -200,7 +201,7 @@ class ToastConstructor extends Component {
   }
 
   render () {
-    const { position, custom, children, icon, toastStyle, textStyle } = this.props;
+    const { position, custom, children, icon, toastStyle, textStyle, iconStyle } = this.props;
     const { visible, windowWidth, windowHeight, keyboardScreenY } = this.state;
     const keyboardHeight = Math.max(windowHeight - keyboardScreenY, 0);
     let offset = position < 0 ? {
@@ -221,8 +222,10 @@ class ToastConstructor extends Component {
               maxWidth: windowWidth * MAX_WIDTH
             }, toastStyle && toastStyle]}>
               {typeof children === "string"
-                ? (<View>
-                  <Image source={require('../demo/assets/view_off.png')} style={{ width: 32, height: 32, resizeMode: 'contain' }} />
+                ? (<View style={styles.view}>
+                  {icon && typeof icon === 'number'
+                    ? <Image source={icon} style={[styles.icon, iconStyle && iconStyle]} />
+                    : icon}
                   <Text style={[styles.text, textStyle && textStyle]}>{children}</Text>
                 </View>)
                 : (children)}
@@ -249,12 +252,21 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     minHeight: 44,
   },
+  view: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   text: {
     fontSize: 16,
     color: '#fff',
     textAlign: 'center',
     lineHeight: 28,
   },
+  icon: {
+    width: 32,
+    height: 32,
+    resizeMode: 'contain'
+  }
 })
 
 /**
@@ -288,9 +300,9 @@ ToastConstructor.propTypes = {
  */
 ToastConstructor.defaultProps = {
   duration: durations.SHORT,
-  custom: false,
   position: positions.BOTTOM,
-  opacity: 0.6,
+  custom: false,
+  opacity: 0.8,
   delay: 0,
   hideOnPress: false,
   keyboardAvoiding: true,

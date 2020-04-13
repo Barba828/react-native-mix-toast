@@ -4205,10 +4205,10 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-native-mix-toast@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-mix-toast/-/react-native-mix-toast-0.0.2.tgz#c1ad3e22c4d49841f4483a3582c0ac4fcb0ac5fa"
-  integrity sha512-/VcV4IYYa/FV+Fossm7172Tgmh7VG2o2DWsjDC/ZG3uoY2ZR7ezTVkm/4K3e9XsyLt8hRvg+GaKaIN5284Vv8Q==
+react-native-mix-toast@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-mix-toast/-/react-native-mix-toast-0.0.3.tgz#41e532e50c2f1e8cded3595b69890cc555303599"
+  integrity sha512-DkXPokC9D0VRFVvbT9V+DMb7fQuJ/fwI1vT1daN+4FoE0ZO4I3nqvvZ63RYExkNNcuD0vJu0JhdECVri/ODjQg==
   dependencies:
     react-native-root-siblings "^4.0.6"
 

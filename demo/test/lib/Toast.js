@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import RootSiblings from 'react-native-root-siblings';
-// import ToastContainer, { positions, durations } from './ToastContainer';
 import ToastConstructer, { positions, durations } from './ToastConstructer';
 
 class Toast extends Component {
@@ -11,8 +10,6 @@ class Toast extends Component {
 
   constructor(props) {
     super(props);
-    //使用单例模式构造toast对象
-    this.toast = null;
   }
 
   //生产toast实例
@@ -20,22 +17,23 @@ class Toast extends Component {
     message,
     options = {
       position: positions.BOTTOM,
-      duration: durations.SHORT,
+      duration: durations.SHORT
     },
   ) => {
-    this.toast = new RootSiblings(
+    //new Toast对象实例
+    let toast = new RootSiblings(
       (
         <ToastConstructer
           //传入子组件回调销毁
           destroyToast={() => {
-            this.hide(this.toast)
+            this.hide(toast)
           }}
           {...options}>
           {message}
         </ToastConstructer>
       ),
     );
-    return this.toast
+    return toast
   };
 
   //销毁toast实例
