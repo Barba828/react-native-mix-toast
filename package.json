@@ -1,11 +1,16 @@
 {
   "name": "react-native-mix-toast",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "a react-native toast",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
+  "files": [
+    "lib",
+    "index.js",
+    "index.d.ts"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
