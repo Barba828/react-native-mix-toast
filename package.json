@@ -1,6 +1,6 @@
 {
   "name": "react-native-mix-toast",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a react-native toast",
   "main": "index.js",
   "directories": {

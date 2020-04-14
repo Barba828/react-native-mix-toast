@@ -1,6 +1,6 @@
 import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import React, { Component } from 'react';
-import Toast, { Duration, Position } from './test';
+import Toast, { Duration, Position } from 'react-native-mix-toast';
 
 class MixToastExample extends Component {
   getToast1 = () => {
