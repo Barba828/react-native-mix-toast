@@ -36,6 +36,32 @@ class Toast extends Component {
     return toast
   };
 
+  static update = (
+    toast,
+    message,
+    options = {
+      position: positions.BOTTOM,
+      duration: durations.SHORT
+    }, ) => {
+    //判断toast类型
+    if (toast instanceof RootSiblings) {
+      toast.update(
+        <ToastConstructer
+          //传入子组件回调销毁
+          destroyToast={() => {
+            this.hide(toast)
+          }}
+          {...options}>
+          {message}
+        </ToastConstructer>
+      )
+    } else {
+      console.warn(
+        `Toast.hide expected a \`RootSiblings\` instance as argument.\nBut got \`${typeof toast}\` instead.`,
+      );
+    }
+  }
+
   //销毁toast实例
   static hide = toast => {
     //判断toast类型

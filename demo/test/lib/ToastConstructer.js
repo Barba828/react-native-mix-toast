@@ -15,7 +15,7 @@ import {
 const window = Dimensions.get('window');
 const positions = {
   TOP: window.height * 0.2,
-  BOTTOM: -window.height * 0.2,
+  BOTTOM: window.height * 0.8,
   CENTER: window.height * 0.5,
 };
 const durations = {
@@ -51,6 +51,7 @@ class ToastConstructor extends Component {
     })
     //展示定时器
     this.Timeout = null;
+    this.ttt = null
   }
 
   componentDidMount () {
@@ -72,6 +73,12 @@ class ToastConstructor extends Component {
     this.Timeout = setTimeout(() => this._show(), this.props.delay);
   }
 
+  UNSAFE_componentWillReceiveProps (nextProps) {
+    clearTimeout(this.Timeout);
+    this.Timeout = setTimeout(() => {
+      this._hide()
+    }, nextProps.duration);
+  }
   componentWillUnmount () {
     clearTimeout(this.Timeout)
     Dimensions.removeEventListener('change');
@@ -111,7 +118,7 @@ class ToastConstructor extends Component {
         animate.transform = [{
           translateY: this.state.animatedValue.interpolate({
             inputRange: [0, 100],
-            outputRange: [window.height / 2, 0]
+            outputRange: [this.props.position, 0]
           })
         }]
         break
@@ -119,7 +126,7 @@ class ToastConstructor extends Component {
         animate.transform = [{
           translateY: this.state.animatedValue.interpolate({
             inputRange: [0, 100],
-            outputRange: [-window.height / 2, 0]
+            outputRange: [-this.props.position, 0]
           })
         }]
         break
@@ -203,12 +210,8 @@ class ToastConstructor extends Component {
   render () {
     const { position, custom, children, icon, toastStyle, textStyle, iconStyle } = this.props;
     const { visible, windowWidth, windowHeight, keyboardScreenY } = this.state;
-    const keyboardHeight = Math.max(windowHeight - keyboardScreenY, 0);
-    let offset = position < 0 ? {
-      bottom: keyboardHeight - position
-    } : {
-        top: position
-      }
+    const heightRate = keyboardScreenY / windowHeight;
+    let offset = { top: position * heightRate }
     return visible && (<View style={[styles.container, offset]} pointerEvents="box-none">
       <TouchableWithoutFeedback onPress={event => this._onPress(event)} pointerEvents="none">
         <Animated.View style={[this._animated()]}>
