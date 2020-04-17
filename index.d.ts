@@ -1,3 +1,6 @@
-import Toast from './index.js';
+import Toast from './lib/Toast';
+import { positions, durations } from './lib/ToastConstructer';
 
-export module Toast { };
+export { durations as Duration };
+export { positions as Position };
+export default Toast;
