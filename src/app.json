@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "HelloWorld",
+    "name": "MixToastDemo",
     "slug": "demo",
     "platforms": [
       "ios",

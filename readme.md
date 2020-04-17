@@ -17,7 +17,7 @@ npm install react-native-mix-toast
 import Toast, { Duration, Position } from 'react-native-mix-toast';
 
 Toast.show('This is Toast', {
-    duration: Duration.SHORT,
+    duration: Duration.LONG,
 });
 ```
 
@@ -66,7 +66,7 @@ Toast.show('This is Toast', {
 
 ## DEMO
 ```shell
-cd demo
+cd src
 npm install
 expo start
 ```

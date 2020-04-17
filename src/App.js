@@ -44,7 +44,7 @@ class MixToastExample extends Component {
     Toast.show('Press To Hide', {
       hideOnPress: true,
       onPress: () => {
-        console.log('Press to hide the toast');
+        alert('Press to hide the toast');
       }
     });
   };
