@@ -26,8 +26,9 @@ Toast.show('This is Toast', {
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | children  | 显示内容，传入`node`为在toast父组件内自定义内容  | `string`、`node` |  -  |
-| duration   | 显示时间，默认提供`LONG`,`SHORT`  | `number` |  `SHORT`  |
+| duration   | 显示时间，默认提供`LONG`,`SHORT`,`PERSIST`  | `number` |  `SHORT`  |
 | position   | 显示位置，默认提供`BOTTOM`,`TOP`,`CENTER` | `number` |  `BOTTOM`  |
+| mask   | 遮罩层 | `bool` |  `false`  |
 | icon   | 显示图标 | `number`、`node` |  -  |
 | opacity    | 显示透明度  | `number`   | `0.8` |
 | delay    | 延时显示 | `number` |  `0`  |
@@ -37,7 +38,8 @@ Toast.show('This is Toast', {
 | toastStyle| Toast自定义样式 | `object` | - |
 | textStyle | Toast文本自定义样式 | `object` | - |
 | iconStyle | Toast图标自定义样式 | `object` | - |
-| hideOnPress | 可点击取消显示 | `boolean` |  `fasle`  |
+| touchable | 可点击内容 | `object` | - |
+| hideOnPress | 点击取消显示 | `boolean` |  `fasle`  |
 | onPress    | 点击Toast触发事件 | `function` | - |
 | onShow    | 显示动画开始调用函数 | `function` | - |
 | onShown    | 显示动画结束调用函数 | `function` | - |
@@ -53,8 +55,8 @@ Toast.show('This is Toast', {
 | children      | 显示内容  | `string`、`node` |  -  |
 | {props}      | 参数，如上`API`  | `object` |  -  |
 
-### show(toast,children,{props})
-显示Toast
+### update(toast,children,{props})
+更新Toast
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | toast      | 需要更新的toast  | `object` |  -  |

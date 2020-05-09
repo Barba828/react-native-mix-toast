@@ -67,7 +67,7 @@ class MixToastExample extends Component {
   _toast = null
   getToast60 = () => {
     this._toast = Toast.show('Touch PressToHide Will Hide The Toast', {
-      duration: 10000
+      duration: Duration.PERSIST
     });
   };
   getToast61 = () => {
@@ -119,6 +119,20 @@ class MixToastExample extends Component {
         custom: true,
         animation: 'slide-bottom',
         opacity: 1
+      }
+    );
+  };
+  getToast10 = () => {
+    Toast.show(
+      <View style={styles.custom}>
+        <Image source={require('./assets/smile.png')} style={{ width: 160, height: 160 }} />
+      </View>,
+      {
+        position: 300,
+        custom: true,
+        animation: 'scale',
+        opacity: 1,
+        mask: true
       }
     );
   };
@@ -260,6 +274,9 @@ class MixToastExample extends Component {
           </TouchableOpacity>
           <TouchableOpacity onPress={this.getToast9}>
             <Text style={styles.text}>Custom Node Message</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.getToast10}>
+            <Text style={styles.text}>Node With Mask</Text>
           </TouchableOpacity>
 
           <View style={{ width: 300, height: 2, backgroundColor: 'yellowgreen', margin: 18 }}></View>
