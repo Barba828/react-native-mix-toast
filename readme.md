@@ -96,7 +96,7 @@ Toast.hide(myToast)
 
 ## DEMO
 ```shell
-cd app
+cd demo
 npm install
 npm start
 ```
