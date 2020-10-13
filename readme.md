@@ -7,25 +7,33 @@
 ## DESCRIBE
 Android和iOS平台通用的自定义Toast UI组件
 
-## INSTALL
+## USAGE
+
+### INSTALL
 ```shell
 npm install react-native-mix-toast
 ```
 
-## USAGE
+### IMPORT
 ```js
 import Toast, { Duration, Position } from 'react-native-mix-toast';
-
+```
+### EXAMPLE
+```js
 Toast.show('This is Toast', {
     duration: Duration.LONG,
 });
 ```
 
 ## API
+属性 | 说明 | 类型 
+----|-----|------
+| content  | Toast显示文本内容，也可传入`React.Node`  | `string`、`node` | 
+| options  | Toast显示设置  | `object` | 
 
+### OPTIONS
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| children  | 显示内容，传入`node`为在toast父组件内自定义内容  | `string`、`node` |  -  |
 | duration   | 显示时间，默认提供`LONG`,`SHORT`,`PERSIST`  | `number` |  `SHORT`  |
 | position   | 显示位置，默认提供`BOTTOM`,`TOP`,`CENTER` | `number` |  `BOTTOM`  |
 | mask   | 遮罩层 | `bool` |  `false`  |
@@ -48,14 +56,14 @@ Toast.show('This is Toast', {
 
 ## FUNC
 
-### show(children,{props})
+### show(content,{options})
 显示Toast
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | children      | 显示内容  | `string`、`node` |  -  |
 | {props}      | 参数，如上`API`  | `object` |  -  |
 
-### update(toast,children,{props})
+### update(toast,content,{options})
 更新Toast
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
@@ -63,14 +71,28 @@ Toast.show('This is Toast', {
 | children      | 显示内容  | `string`、`node` |  -  |
 | {props}      | 参数，如上`API`  | `object` |  -  |
 
-### hide()
+### hide(toast)
 可以主动调用关闭Toast
+
+### EXAMPLE
+```js
+// show()
+var myToast = Toast.show('This is Toast', { duration: Duration.PERSIST });
+// update()
+Toast.update(
+    myToast,
+    'This is Updated Toast',
+    { duration: Duration.PERSIST }
+);
+// hide()
+Toast.hide(myToast)
+```
 
 ## DEMO
 ```shell
-cd src
+cd demo
 npm install
-expo start
+npm start
 ```
 or
 

@@ -1,7 +1,7 @@
 {
   "name": "react-native-mix-toast",
-  "version": "0.1.0",
-  "description": "a react-native toast",
+  "version": "0.1.1",
+  "description": "react-native toast with animation for iOS & Android",
   "main": "index.js",
   "directories": {
     "lib": "lib"
