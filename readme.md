@@ -25,6 +25,46 @@ Toast.show('This is Toast', {
 });
 ```
 
+## FUNC
+
+### show(content,{options})
+显示Toast
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| content      | Toast显示文本内容，可为`React.Node`  | `string`、`node` |  -  |
+| {options}      | Toast显示参数[API](##API)  | `object` |  -  |
+
+### update(toast,content,{options})
+更新Toast
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| toast      | 需要更新的toast  | `object` |  -  |
+| content      | 同`show()`   | `string`、`node` |  -  |
+| {options}      | 同`show()`  | `object` |  -  |
+
+### hide(toast)
+可以主动调用关闭Toast
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| toast      | 需要更新的toast  | `object` |  -  |
+
+### EXAMPLE
+```js
+// show()
+var myToast = Toast.show(
+    'This is Toast', 
+    { duration: Duration.PERSIST }
+);
+// update()
+Toast.update(
+    myToast,
+    'This is Updated Toast',
+    { duration: Duration.PERSIST }
+);
+// hide()
+Toast.hide(myToast)
+```
+
 ## API
 属性 | 说明 | 类型 
 ----|-----|------
@@ -54,43 +94,9 @@ Toast.show('This is Toast', {
 | onHide    | 消失动画开始调用函数 | `function` | - |
 | onHidden    | 消失动画结束调用函数 | `function` | - |
 
-## FUNC
-
-### show(content,{options})
-显示Toast
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
-| children      | 显示内容  | `string`、`node` |  -  |
-| {props}      | 参数，如上`API`  | `object` |  -  |
-
-### update(toast,content,{options})
-更新Toast
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
-| toast      | 需要更新的toast  | `object` |  -  |
-| children      | 显示内容  | `string`、`node` |  -  |
-| {props}      | 参数，如上`API`  | `object` |  -  |
-
-### hide(toast)
-可以主动调用关闭Toast
-
-### EXAMPLE
-```js
-// show()
-var myToast = Toast.show('This is Toast', { duration: Duration.PERSIST });
-// update()
-Toast.update(
-    myToast,
-    'This is Updated Toast',
-    { duration: Duration.PERSIST }
-);
-// hide()
-Toast.hide(myToast)
-```
-
 ## DEMO
 ```shell
-cd demo
+cd app
 npm install
 npm start
 ```
